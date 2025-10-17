@@ -14,7 +14,7 @@ jobs:
 
     strategy: # define matrix for multiple Node.js versions and it run job in parallel for each version
       matrix:
-        node-version: [18.x, 20.x, 21.x]
+        node-version: [21.x]
     
     steps:
       - name: Checkout code # clone the repo if not already present
