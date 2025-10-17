@@ -1,0 +1,39 @@
+name: cd pipeline to deploy frontend app to production
+
+on:
+   workflow_run:
+     workflows: ["CI Pipeline for React Todo App"]
+     types:
+       - completed
+
+
+jobs:
+   deploy-frontend:
+        environment: production
+        name: Deploy Frontend to Production
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js environment
+              uses: actions/setup-node@v4
+              with:
+                node-version: '21.x'
+                cache: 'npm'
+                cache-dependency-path: '**/package-lock.json'
+            
+            - name: setup vercel cli
+              run: npm install -g vercel
+            
+            - name: Download build artifacts
+              uses: actions/download-artifact@v4
+              with:
+                name: vite-dist 
+            
+            - name: Deploy to vercel
+              run: vercel --prod --token ${{ secrets.VERCEL_TOKEN }} --confirm
+
+            - name: Deployment Success Message
+              run: echo "Frontend deployed successfully to production!"

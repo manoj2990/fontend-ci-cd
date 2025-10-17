@@ -9,6 +9,7 @@ on:
 
 jobs:
   frontend-build:
+    environment: development
     name: Build and Test Frontend
     runs-on: ubuntu-latest
 
