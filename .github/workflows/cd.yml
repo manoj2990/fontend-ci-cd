@@ -32,6 +32,9 @@ jobs:
             - name: Download build artifacts
               uses: actions/download-artifact@v4
 
+            - name: List files after download (for debugging)
+              run: ls -la
+
             - name: Verify build artifacts
               run: |    
                 echo "Checking downloaded artifacts:"
