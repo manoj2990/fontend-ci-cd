@@ -4,14 +4,14 @@ export type Todo={
     completed: boolean,
 };
 
-type TodoItem={
-    id: number,
-    text: string,
-    completed: boolean,
-    toggle: () => void,
-    onDelete: () => void,
-}
-type TodoFormProps={
-    addNote: (text: string) => void,
+// type TodoItem={
+//     id: number,
+//     text: string,
+//     completed: boolean,
+//     toggle: () => void,
+//     onDelete: () => void,
+// }
+// type TodoFormProps={
+//     addNote: (text: string) => void,
     
-}
+// }

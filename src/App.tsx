@@ -1,7 +1,7 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import TodoForm from "./components/todo-form";
-import { useContext, useEffect, useState, ChangeEvent, FormEvent } from "react";
+import { useContext, useEffect, useState} from "react";
 import ListItem from "./components/list-item";
 import { FaNoteSticky, FaSun, FaTrashCan, FaMoon } from "react-icons/fa6";
 import toast from "react-hot-toast";
