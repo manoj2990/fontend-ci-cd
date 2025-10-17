@@ -5,7 +5,8 @@ on:
      workflows: ["CI Pipeline for React Todo App"]
      types:
        - completed
-
+    
+   workflow_dispatch:
 
 jobs:
    deploy-frontend:
@@ -30,7 +31,8 @@ jobs:
             - name: Download build artifacts
               uses: actions/download-artifact@v4
               with:
-                name: vite-dist 
+                name: vite-dist
+                path: dist
             
             - name: Deploy to vercel
               run: vercel --prod --token ${{ secrets.VERCEL_TOKEN }} --confirm
