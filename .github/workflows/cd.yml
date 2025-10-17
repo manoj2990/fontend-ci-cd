@@ -24,6 +24,12 @@ jobs:
                 node-version: '21.x'
                 cache: 'npm'
                 cache-dependency-path: '**/package-lock.json'
+            - name: Verify build artifacts
+              run: |
+                echo "Checking downloaded artifacts:"
+                ls -la build/
+                [ -f "build/index.html" ] || exit 1
+                echo "Build artifacts verified"
             
             - name: setup vercel cli
               run: npm install -g vercel
