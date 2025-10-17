@@ -27,8 +27,8 @@ jobs:
             - name: Verify build artifacts
               run: |
                 echo "Checking downloaded artifacts:"
-                ls -la build/
-                [ -f "build/index.html" ] || exit 1
+                ls -la dist/
+                [ -f "dist/index.html" ] || exit 1
                 echo "Build artifacts verified"
             
             - name: setup vercel cli
