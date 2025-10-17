@@ -11,21 +11,21 @@ jobs:
   frontend-build:
     name: Build and Test Frontend
     runs-on: ubuntu-latest
-    
-    strategy:
+
+    strategy: # define matrix for multiple Node.js versions and it run job in parallel for each version
       matrix:
         node-version: [18.x, 20.x, 21.x]
     
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Checkout code # clone the repo if not already present
+        uses: actions/checkout@v4 # using action tool to checkout code using keyword 'uses'
       
-      - name: Setup Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js ${{ matrix.node-version }} # setup Node.js environment for each version in matrix
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-          cache-dependency-path: '**/package-lock.json'
+          cache: 'npm' # enable caching for npm dependencies
+          cache-dependency-path: '**/package-lock.json' # spe
       
       - name: Install dependencies
         run: npm ci
